@@ -4,7 +4,7 @@
 
 ```javascript
 import Transport from "@ledgerhq/hw-transport-node-hid";
-import App from "@liuqiang1357/hw-app-ont";
+import App from "@ont-dev/hw-app-ont";
 import { Crypto, Transaction } from 'ontology-ts-sdk';
 
 (async function run() {
