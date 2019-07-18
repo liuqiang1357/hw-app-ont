@@ -1,0 +1,27 @@
+{
+  "name": "@liuqiang1357/hw-app-ont",
+  "version": "1.0.0",
+  "description": "Ledger Javascript API for ONT and NEO.",
+  "main": "src/ont.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liuqiang1357/hw-app-ont.git"
+  },
+  "keywords": [
+    "Ledger",
+    "Javascript",
+    "ONT"
+  ],
+  "author": "liuqiang1357",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/liuqiang1357/hw-app-ont/issues"
+  },
+  "homepage": "https://github.com/liuqiang1357/hw-app-ont#readme",
+  "dependencies": {
+    "ontology-ts-sdk": "^1.0.18"
+  }
+}
