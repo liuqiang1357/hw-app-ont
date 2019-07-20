@@ -1,6 +1,6 @@
 {
   "name": "@ont-dev/hw-app-ont",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Ledger Javascript API for ONT and NEO.",
   "main": "src/ont.js",
   "scripts": {
