@@ -5,6 +5,7 @@
 ```javascript
 import Transport from "@ledgerhq/hw-transport-node-hid";
 import App from "@ont-dev/hw-app-ont";
+import * as elliptic from 'elliptic';
 import { Crypto, Transaction } from 'ontology-ts-sdk';
 
 (async function run() {
@@ -15,8 +16,16 @@ import { Crypto, Transaction } from 'ontology-ts-sdk';
   transport.setExchangeTimeout(15000);
   const app = new App(transport);
 
-  const publicKey = app.getPublicKey(ledgerPath);
-  console.log(publicKey);
+  const uncompressedPublicKey = await app.getPublicKey(ledgerPath);
+  console.log(uncompressedPublicKey);
+  const ec = new elliptic.ec(Crypto.CurveLabel.SECP256R1.preset);
+  const keyPair = ec.keyFromPublic(uncompressedPublicKey, 'hex');
+  const compressedPublicKey = keyPair.getPublic(true, 'hex');
+  console.log(compressedPublicKey);
+  const ontPublicKey = new Crypto.PublicKey(compressedPublicKey);
+  const ontAddress = Crypto.Address.fromPubKey(ontPublicKey);
+  const addressBase58 = ontAddress.toBase58();
+  console.log(addressBase58);
 
   const ontTransaction = Transaction.deserialize(transactionHex);
   const unsignedData = ontTransaction.serializeUnsignedData();
