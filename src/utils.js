@@ -1,6 +1,6 @@
-import { utils } from 'ontology-ts-sdk';
+const { utils } = require('ontology-ts-sdk');
 
-export function splitPath(path) {
+function splitPath(path) {
   let result = [];
   let components = path.split('/');
   components.forEach(element => {
@@ -16,7 +16,7 @@ export function splitPath(path) {
   return result;
 }
 
-export function convertPathToBuffer(path) {
+function convertPathToBuffer(path) {
   const paths = splitPath(path);
   const buffer = Buffer.alloc(paths.length * 4);
   paths.forEach((element, index) => {
@@ -25,7 +25,7 @@ export function convertPathToBuffer(path) {
   return buffer;
 }
 
-export function convertDerToHex(response) {
+function convertDerToHex(response) {
   const ss = new utils.StringReader(response);
   // The first byte is format. It is usually 0x30 (SEQ) or 0x31 (SET)
   // The second byte represents the total length of the DER module.
@@ -48,4 +48,10 @@ export function convertDerToHex(response) {
     return i;
   });
   return integers.join('');
+}
+
+module.exports = {
+  splitPath,
+  convertPathToBuffer,
+  convertDerToHex,
 }

@@ -1,4 +1,4 @@
-import { convertPathToBuffer, convertDerToHex } from './utils';
+const { convertPathToBuffer, convertDerToHex } = require('./utils');
 
 const VALID_STATUS = 0x9000;
 const MSG_TOO_BIG = 0x6d08;
@@ -6,7 +6,7 @@ const APP_CLOSED = 0x6e00;
 const TX_DENIED = 0x6985;
 const TX_PARSE_ERR = 0x6d07;
 
-export default class Ont {
+class Ont {
   constructor(transport, scrambleKey = 'ONT') {
     this.transport = transport;
     transport.decorateAppAPIMethods(this, ['getPublicKey', 'signMessage'], scrambleKey);
@@ -67,3 +67,5 @@ export default class Ont {
     return error;
   }
 }
+
+module.exports = Ont;

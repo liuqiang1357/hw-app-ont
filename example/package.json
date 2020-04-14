@@ -1,0 +1,23 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/polyfill": "^7.6.2",
+    "@babel/register": "^7.6.2",
+    "@ledgerhq/hw-transport-node-hid": "^5.13.0",
+    "@ont-dev/hw-app-ont": "^1.0.3",
+    "elliptic": "^6.5.2",
+    "ontology-ts-sdk": "^1.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.5.5"
+  }
+}
