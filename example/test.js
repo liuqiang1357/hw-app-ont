@@ -31,4 +31,4 @@ async function test() {
   console.log(ontSignatureHex);
 }
 
-test();
+test().catch(console.error);
